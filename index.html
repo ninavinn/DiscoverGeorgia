@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="აღმოაჩინე საქართველო: მთები, ღვინო, ისტორია და გემრიელი სამზარეულო. დაგეგმე შენი მოგზაურობა.">
+  <title>აღმოაჩინე საქართველო</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">გადასვლა მთავარ კონტენტზე</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#hero" class="logo">🇬🇪 აღმოაჩინე საქართველო</a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="მენიუს გახსნა" aria-expanded="false" aria-controls="mainNav">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav id="mainNav" class="main-nav" aria-label="მთავარი ნავიგაცია">
+        <ul>
+          <li><a href="#about">შესახებ</a></li>
+          <li><a href="#regions">რეგიონები</a></li>
+          <li><a href="#gallery">გალერეა</a></li>
+          <li><a href="#facts">ციფრები</a></li>
+          <li><a href="#contact">კონტაქტი</a></li>
+        </ul>
+      </nav>
+
+      <button class="theme-toggle" id="themeToggle" aria-label="თემის შეცვლა">🌙</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="hero" class="hero">
+      <div class="container hero-content">
+        <p class="eyebrow">კავკასიის გულში</p>
+        <h1>ქვეყანა, სადაც ყოველი ნაბიჯი ისტორიაა</h1>
+        <p class="lead">მთები, ზღვა, 8000 წლის ღვინის ტრადიცია და სტუმართმოყვარეობა, რომელსაც ვერსად შეხვდები.</p>
+        <a href="#regions" class="btn btn-primary">დაიწყე მოგზაურობა</a>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container about-grid">
+        <article>
+          <h2>რატომ საქართველო?</h2>
+          <p>საქართველო პატარა ქვეყანაა, მაგრამ ერთ მოგზაურობაში აერთიანებს თოვლიან მთებს, სუბტროპიკულ სანაპიროს, უძველეს ქალაქებსა და ღვინის ხეობებს.</p>
+          <p>აქ ყველა სუფრა დღესასწაულია, ყოველი სოფელი კი საკუთარ ამბავს ინახავს.</p>
+        </article>
+        <aside class="about-card">
+          <h3>სწრაფი ინფორმაცია</h3>
+          <dl>
+            <dt>დედაქალაქი</dt><dd>თბილისი</dd>
+            <dt>ენა</dt><dd>ქართული</dd>
+            <dt>ვალუტა</dt><dd>ლარი (GEL)</dd>
+            <dt>საუკეთესო სეზონი</dt><dd>მაისი–ოქტომბერი</dd>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <section id="regions" class="section section-alt">
+      <div class="container">
+        <h2>პოპულარული რეგიონები</h2>
+        <p class="section-sub">დააჭირე სლაიდერის ისრებს ან გამოიყენე კლავიატურა (← →).</p>
+
+        <div class="slider" id="slider" aria-roledescription="სლაიდერი">
+          <div class="slides" id="slides">
+            <figure class="slide active" data-bg="mountain">
+              <figcaption>
+                <h3>სვანეთი</h3>
+                <p>კოშკები, მყინვარები და ევროპის ერთ-ერთი უმაღლესი დასახლება უშგული.</p>
+              </figcaption>
+            </figure>
+            <figure class="slide" data-bg="wine">
+              <figcaption>
+                <h3>კახეთი</h3>
+                <p>ღვინის სამშობლო: ქვევრი, ყურძნის სეზონი და ალაზნის ველი.</p>
+              </figcaption>
+            </figure>
+            <figure class="slide" data-bg="sea">
+              <figcaption>
+                <h3>ბათუმი</h3>
+                <p>შავი ზღვა, ბულვარი, ბოტანიკური ბაღი და თანამედროვე არქიტექტურა.</p>
+              </figcaption>
+            </figure>
+            <figure class="slide" data-bg="city">
+              <figcaption>
+                <h3>თბილისი</h3>
+                <p>ძველი უბნები, გოგირდის აბანოები და ცოცხალი ღამის ცხოვრება.</p>
+              </figcaption>
+            </figure>
+          </div>
+          <button class="slider-btn prev" id="prevBtn" aria-label="წინა სლაიდი">‹</button>
+          <button class="slider-btn next" id="nextBtn" aria-label="შემდეგი სლაიდი">›</button>
+          <div class="dots" id="dots" role="tablist" aria-label="სლაიდების არჩევა"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" class="section">
+      <div class="container">
+        <h2>რას ვნახავთ</h2>
+        <div class="filters" role="group" aria-label="ფილტრი">
+          <button class="filter active" data-filter="all">ყველა</button>
+          <button class="filter" data-filter="nature">ბუნება</button>
+          <button class="filter" data-filter="culture">კულტურა</button>
+          <button class="filter" data-filter="food">გემო</button>
+        </div>
+        <ul class="cards" id="cards">
+          <li class="card" data-cat="nature"><span class="emoji" aria-hidden="true">🏔️</span><h3>ყაზბეგი</h3><p>გერგეტის სამება მთის ფონზე.</p></li>
+          <li class="card" data-cat="culture"><span class="emoji" aria-hidden="true">⛪</span><h3>სვეტიცხოველი</h3><p>UNESCO-ს მემკვიდრეობის ძეგლი მცხეთაში.</p></li>
+          <li class="card" data-cat="food"><span class="emoji" aria-hidden="true">🥟</span><h3>ხინკალი</h3><p>ქართული სუფრის სიმბოლო.</p></li>
+          <li class="card" data-cat="nature"><span class="emoji" aria-hidden="true">🌊</span><h3>მარტვილის კანიონი</h3><p>ზურმუხტისფერი წყალი და ნავით სეირნობა.</p></li>
+          <li class="card" data-cat="culture"><span class="emoji" aria-hidden="true">🏛️</span><h3>ვარძია</h3><p>კლდეში ნაკვეთი მონასტრების კომპლექსი.</p></li>
+          <li class="card" data-cat="food"><span class="emoji" aria-hidden="true">🍷</span><h3>ქვევრის ღვინო</h3><p>უძველესი ტექნოლოგია, ცოცხალი გემო.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="facts" class="section section-alt">
+      <div class="container">
+        <h2>საქართველო ციფრებში</h2>
+        <ul class="stats">
+          <li><strong class="counter" data-target="8000">0</strong><span>წლის ღვინის ისტორია</span></li>
+          <li><strong class="counter" data-target="525">0</strong><span>ქართული ყურძნის ჯიში</span></li>
+          <li><strong class="counter" data-target="5">0</strong><span>UNESCO-ს ძეგლი</span></li>
+          <li><strong class="counter" data-target="33">0</strong><span>ასო ქართულ ანბანში</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container contact-wrap">
+        <div>
+          <h2>დაგეგმე ტური</h2>
+          <p>შეავსე ფორმა და გამოგიგზავნით მარშრუტის წინადადებას.</p>
+        </div>
+        <form id="contactForm" class="form" novalidate>
+          <label for="name">სახელი</label>
+          <input type="text" id="name" name="name" placeholder="მაგ: ნინო" required minlength="2">
+          <small class="error" id="nameError" role="alert"></small>
+
+          <label for="email">ელფოსტა</label>
+          <input type="email" id="email" name="email" placeholder="nino@example.com" required>
+          <small class="error" id="emailError" role="alert"></small>
+
+          <label for="region">სასურველი რეგიონი</label>
+          <select id="region" name="region" required>
+            <option value="">აირჩიე...</option>
+            <option>სვანეთი</option>
+            <option>კახეთი</option>
+            <option>ბათუმი</option>
+            <option>თბილისი</option>
+          </select>
+          <small class="error" id="regionError" role="alert"></small>
+
+          <label for="message">შეტყობინება</label>
+          <textarea id="message" name="message" rows="4" maxlength="300" placeholder="მოგვიყევი შენი ოცნების მოგზაურობაზე"></textarea>
+          <small class="counter-text"><span id="charCount">0</span>/300</small>
+
+          <button type="submit" class="btn btn-primary">გაგზავნა</button>
+          <p class="success" id="formSuccess" role="status" hidden></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 აღმოაჩინე საქართველო · სასწავლო პროექტი · Skillwill</p>
+    </div>
+  </footer>
+
+  <button class="to-top" id="toTop" aria-label="ზემოთ დაბრუნება" hidden>↑</button>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
