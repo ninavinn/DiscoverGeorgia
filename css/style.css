@@ -1,0 +1,179 @@
+/* ===== 1. ცვლადები და თემა ===== */
+:root {
+  --bg: #fffaf3;
+  --bg-alt: #f5ebdd;
+  --text: #2b2118;
+  --muted: #6b5d50;
+  --primary: #b3202a;
+  --primary-dark: #8c161f;
+  --accent: #d9a441;
+  --card: #ffffff;
+  --shadow: 0 8px 24px rgba(0, 0, 0, .08);
+  --radius: 16px;
+  --header-h: 68px;
+}
+[data-theme="dark"] {
+  --bg: #15110e;
+  --bg-alt: #1e1814;
+  --text: #f3ece3;
+  --muted: #b5a899;
+  --card: #261f1a;
+  --shadow: 0 8px 24px rgba(0, 0, 0, .5);
+}
+
+/* ===== 2. Reset და ბაზა ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: var(--header-h); }
+body {
+  font-family: "Noto Sans Georgian", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  transition: background .3s, color .3s;
+}
+img { max-width: 100%; display: block; }
+ul { list-style: none; }
+a { color: inherit; text-decoration: none; }
+.container { width: min(1100px, 92%); margin-inline: auto; }
+.section { padding: 5rem 0; }
+.section-alt { background: var(--bg-alt); }
+h1, h2, h3 { line-height: 1.25; }
+h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: .75rem; }
+.section-sub { color: var(--muted); margin-bottom: 1.5rem; }
+
+.skip-link {
+  position: absolute; left: -999px; top: 0;
+  background: var(--primary); color: #fff; padding: .6rem 1rem; z-index: 200;
+}
+.skip-link:focus { left: 0; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+/* ===== 3. ჰედერი და ნავიგაცია ===== */
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  height: var(--header-h);
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(128, 128, 128, .2);
+}
+.header-inner { display: flex; align-items: center; justify-content: space-between; height: 100%; gap: 1rem; }
+.logo { font-weight: 800; color: var(--primary); }
+.main-nav ul { display: flex; gap: 1.5rem; }
+.main-nav a { padding: .4rem .2rem; font-weight: 600; border-bottom: 2px solid transparent; transition: .2s; }
+.main-nav a:hover, .main-nav a.active { color: var(--primary); border-color: var(--primary); }
+.theme-toggle { background: none; border: 1px solid rgba(128,128,128,.4); border-radius: 50%; width: 40px; height: 40px; font-size: 1.1rem; cursor: pointer; }
+
+.menu-toggle { display: none; background: none; border: 0; cursor: pointer; width: 40px; height: 40px; flex-direction: column; justify-content: center; gap: 5px; }
+.menu-toggle span { display: block; height: 3px; width: 26px; margin-inline: auto; background: var(--text); border-radius: 2px; transition: .3s; }
+.menu-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.menu-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+/* ===== 4. Hero ===== */
+.hero {
+  min-height: 85vh; display: grid; place-items: center; text-align: center; color: #fff;
+  background:
+    linear-gradient(rgba(20, 10, 10, .55), rgba(20, 10, 10, .65)),
+    radial-gradient(circle at 20% 20%, #b3202a 0, transparent 45%),
+    radial-gradient(circle at 80% 70%, #d9a441 0, transparent 40%),
+    linear-gradient(135deg, #2c3e50, #1b2a1f);
+}
+.hero-content { padding: 3rem 0; animation: fadeUp .9s ease both; }
+.hero h1 { font-size: clamp(2rem, 6vw, 3.8rem); font-weight: 800; max-width: 18ch; margin-inline: auto; }
+.eyebrow { text-transform: uppercase; letter-spacing: .15em; color: var(--accent); font-weight: 600; margin-bottom: .75rem; }
+.lead { max-width: 55ch; margin: 1.2rem auto 2rem; font-size: 1.15rem; opacity: .95; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+
+.btn { display: inline-block; padding: .85rem 1.8rem; border-radius: 999px; border: 0; font: inherit; font-weight: 600; cursor: pointer; transition: transform .2s, background .2s; }
+.btn-primary { background: var(--primary); color: #fff; }
+.btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); }
+
+/* ===== 5. About (Grid) ===== */
+.about-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 2.5rem; align-items: start; }
+.about-grid p + p { margin-top: 1rem; }
+.about-card { background: var(--card); padding: 1.6rem; border-radius: var(--radius); box-shadow: var(--shadow); border-top: 4px solid var(--accent); }
+.about-card h3 { margin-bottom: 1rem; }
+.about-card dl { display: grid; grid-template-columns: auto 1fr; gap: .5rem 1rem; }
+.about-card dt { color: var(--muted); }
+.about-card dd { font-weight: 600; text-align: right; }
+
+/* ===== 6. სლაიდერი ===== */
+.slider { position: relative; overflow: hidden; border-radius: var(--radius); box-shadow: var(--shadow); aspect-ratio: 16 / 7; min-height: 300px; }
+.slides { height: 100%; position: relative; }
+.slide { position: absolute; inset: 0; display: flex; align-items: flex-end; opacity: 0; transition: opacity .7s ease; }
+.slide.active { opacity: 1; z-index: 1; }
+.slide[data-bg="mountain"] { background: linear-gradient(160deg, #3a506b, #8ab6d6 55%, #f0f4f8); }
+.slide[data-bg="wine"]     { background: linear-gradient(160deg, #5b1a2b, #a8324a 55%, #e0b25e); }
+.slide[data-bg="sea"]      { background: linear-gradient(160deg, #0b3c5d, #1d8fb5 55%, #f2dfa7); }
+.slide[data-bg="city"]     { background: linear-gradient(160deg, #3b2f2f, #b3202a 55%, #f0b76c); }
+.slide figcaption { color: #fff; padding: 2rem clamp(1rem, 4vw, 3rem); width: 100%; background: linear-gradient(transparent, rgba(0,0,0,.65)); }
+.slide figcaption h3 { font-size: clamp(1.4rem, 3vw, 2rem); }
+.slide figcaption p { max-width: 55ch; opacity: .95; }
+.slider-btn { position: absolute; top: 50%; transform: translateY(-50%); z-index: 2; width: 46px; height: 46px; border-radius: 50%; border: 0; background: rgba(255,255,255,.85); color: #222; font-size: 1.8rem; line-height: 1; cursor: pointer; transition: .2s; }
+.slider-btn:hover { background: #fff; transform: translateY(-50%) scale(1.08); }
+.prev { left: 12px; } .next { right: 12px; }
+.dots { position: absolute; bottom: 12px; right: 16px; z-index: 2; display: flex; gap: 8px; }
+.dot { width: 12px; height: 12px; border-radius: 50%; border: 0; background: rgba(255,255,255,.5); cursor: pointer; }
+.dot.active { background: var(--accent); transform: scale(1.25); }
+
+/* ===== 7. გალერეა (Grid) ===== */
+.filters { display: flex; flex-wrap: wrap; gap: .6rem; margin: 1rem 0 1.8rem; }
+.filter { padding: .5rem 1.1rem; border-radius: 999px; border: 1px solid var(--primary); background: transparent; color: var(--primary); font: inherit; cursor: pointer; transition: .2s; }
+.filter.active, .filter:hover { background: var(--primary); color: #fff; }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; }
+.card { background: var(--card); padding: 1.8rem; border-radius: var(--radius); box-shadow: var(--shadow); transition: transform .25s, opacity .3s; }
+.card:hover { transform: translateY(-6px); }
+.card.hide { display: none; }
+.card .emoji { font-size: 2.4rem; display: block; margin-bottom: .6rem; }
+.card p { color: var(--muted); }
+
+/* ===== 8. სტატისტიკა (Flexbox) ===== */
+.stats { display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center; margin-top: 1.5rem; }
+.stats li { flex: 1 1 200px; text-align: center; background: var(--card); padding: 1.8rem 1rem; border-radius: var(--radius); box-shadow: var(--shadow); }
+.stats strong { display: block; font-size: 2.8rem; color: var(--primary); }
+.stats span { color: var(--muted); }
+
+/* ===== 9. ფორმა ===== */
+.contact-wrap { display: grid; grid-template-columns: 1fr 1.2fr; gap: 2.5rem; align-items: start; }
+.form { background: var(--card); padding: 2rem; border-radius: var(--radius); box-shadow: var(--shadow); display: flex; flex-direction: column; gap: .35rem; }
+.form label { font-weight: 600; margin-top: .6rem; }
+.form input, .form select, .form textarea {
+  font: inherit; padding: .7rem .9rem; border-radius: 10px;
+  border: 1.5px solid rgba(128,128,128,.4); background: var(--bg); color: var(--text);
+}
+.form input:focus, .form select:focus, .form textarea:focus { border-color: var(--primary); outline: none; }
+.form .invalid { border-color: #d62839; }
+.error { color: #d62839; min-height: 1.1em; }
+.counter-text { color: var(--muted); text-align: right; }
+.form .btn { margin-top: 1rem; align-self: flex-start; }
+.success { color: #1b8a4b; font-weight: 600; margin-top: .8rem; }
+
+/* ===== 10. ფუტერი და ზემოთ ღილაკი ===== */
+.site-footer { background: #1b1410; color: #d9cfc3; text-align: center; padding: 2rem 0; }
+.to-top { position: fixed; right: 20px; bottom: 20px; width: 46px; height: 46px; border-radius: 50%; border: 0; background: var(--primary); color: #fff; font-size: 1.3rem; cursor: pointer; box-shadow: var(--shadow); z-index: 90; }
+
+/* ===== 11. Scroll reveal ===== */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity .7s, transform .7s; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ===== 12. რესპონსივობა ===== */
+@media (max-width: 860px) {
+  .about-grid, .contact-wrap { grid-template-columns: 1fr; }
+  .menu-toggle { display: flex; }
+  .main-nav {
+    position: absolute; top: var(--header-h); left: 0; right: 0;
+    background: var(--bg); border-bottom: 1px solid rgba(128,128,128,.25);
+    max-height: 0; overflow: hidden; transition: max-height .35s ease;
+  }
+  .main-nav.open { max-height: 360px; }
+  .main-nav ul { flex-direction: column; gap: 0; padding: .5rem 4%; }
+  .main-nav a { display: block; padding: .9rem 0; }
+  .slider { aspect-ratio: 4 / 3; }
+}
+@media (max-width: 480px) {
+  .section { padding: 3.2rem 0; }
+  .logo { font-size: .95rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
