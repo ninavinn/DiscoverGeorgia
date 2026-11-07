@@ -124,14 +124,10 @@ discover-georgia/
 
 ```
 chore: initial project structure and .gitignore
-feat(html): add semantic page structure
-feat(css): add base styles, variables and dark theme
-feat(css): add responsive layout with Flexbox and Grid
-feat(js): add mobile menu and theme toggle
-feat(js): add slider, gallery filter and animations
-feat(js): add form validation
-perf: optimize loading and accessibility
-docs: add README with plan and documentation
+feat(html): add semantic HTML5 page structure and contact form
+feat(css): add styles, dark theme, Flexbox/Grid layout and responsive breakpoints
+feat(js): add menu, slider, gallery filter, animations and form validation
+docs: add README with plan, architecture and optimization notes
 ```
 
 ატვირთვა GitHub-ზე:
